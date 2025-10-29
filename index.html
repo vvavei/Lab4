@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="ru">
-<<<<<<< HEAD
 <head>
   <meta charset="utf-8">
   <title>Demo Site – Навигация</title>
@@ -65,30 +64,4 @@
     <a href="ru/index.html">Русская версия</a> |
     <a href="en/index.html">English version</a>
   </nav>
-  <p>Эта страница будет доступна внутри каждой версии, например:  
-     <code>/v2.0.0/index.html</code></p>
 </body>
-=======
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Версии сайта</title>
-<h1>Доступные версии сайта</h1>
-<ul id="list"></ul>
-<script>
-fetch('versions.json').then(r=>r.json()).then(vers=>{
-  const ul=document.getElementById('list');
-  if(!vers.length){ ul.innerHTML='<li>Пока нет опубликованных версий</li>'; return; }
-  vers.forEach(v=>{
-    const li=document.createElement('li');
-    const a=document.createElement('a');
-    a.href = 'v'+v+'/index.html';
-    a.textContent = 'v'+v;
-    li.appendChild(a);
-    ul.appendChild(li);
-  });
-}).catch(()=>{
-  document.getElementById('list').innerHTML='<li>Не удалось загрузить список версий</li>';
-});
-</script>
->>>>>>> e269981868a35513282a4b1f6916111b3362358b
-</html>
