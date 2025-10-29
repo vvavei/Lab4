@@ -1,74 +1,5 @@
 <!doctype html>
 <html lang="ru">
-<<<<<<< HEAD
-<head>
-  <meta charset="utf-8">
-  <title>Demo Site – Навигация</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-      line-height: 1.6;
-      background-color: #f5f5f5;
-    }
-    
-    h1 {
-      color: #2c3e50;
-      text-align: center;
-      border-bottom: 2px solid #3498db;
-      padding-bottom: 10px;
-    }
-    
-    p {
-      background: white;
-      padding: 15px;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    
-    nav {
-      text-align: center;
-      margin: 20px 0;
-      background: white;
-      padding: 15px;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    
-    a {
-      color: #3498db;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 5px 10px;
-    }
-    
-    a:hover {
-      background-color: #3498db;
-      color: white;
-      border-radius: 3px;
-    }
-    
-    code {
-      background: #f8f9fa;
-      padding: 2px 5px;
-      border-radius: 3px;
-      font-family: monospace;
-    }
-  </style>
-</head>
-<body>
-  <h1>Demo Site</h1>
-  <p>Добро пожаловать! Выберите язык:</p>
-  <nav>
-    <a href="ru/index.html">Русская версия</a> |
-    <a href="en/index.html">English version</a>
-  </nav>
-  <p>Эта страница будет доступна внутри каждой версии, например:  
-     <code>/v2.0.0/index.html</code></p>
-</body>
-=======
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Версии сайта</title>
@@ -90,5 +21,4 @@ fetch('versions.json').then(r=>r.json()).then(vers=>{
   document.getElementById('list').innerHTML='<li>Не удалось загрузить список версий</li>';
 });
 </script>
->>>>>>> e269981868a35513282a4b1f6916111b3362358b
 </html>
