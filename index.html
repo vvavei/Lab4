@@ -1,16 +1,24 @@
 <!doctype html>
 <html lang="ru">
-<head>
-  <meta charset="utf-8">
-  <title>Demo Site – Навигация</title>
-</head>
-<body>
-  <h1>Demo Site</h1>
-  <p>Добро пожаловать! Выберите язык:</p>
-  <nav>
-    <a href="ru/index.html">Русская версия</a> |
-    <a href="en/index.html">English version</a>
-  </nav>
-</body>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Версии сайта</title>
+<h1>Доступные версии сайта</h1>
+<ul id="list"></ul>
+<script>
+fetch('versions.json').then(r=>r.json()).then(vers=>{
+  const ul=document.getElementById('list');
+  if(!vers.length){ ul.innerHTML='<li>Пока нет опубликованных версий</li>'; return; }
+  vers.forEach(v=>{
+    const li=document.createElement('li');
+    const a=document.createElement('a');
+    a.href = 'v'+v+'/index.html';
+    a.textContent = 'v'+v;
+    li.appendChild(a);
+    ul.appendChild(li);
+  });
+}).catch(()=>{
+  document.getElementById('list').innerHTML='<li>Не удалось загрузить список версий</li>';
+});
+</script>
 </html>
-
