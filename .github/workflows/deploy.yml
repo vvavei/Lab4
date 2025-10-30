@@ -65,6 +65,10 @@ jobs:
             echo "]"
           } > versions.json
 
+      - name: Copy root index (pre-made file) to gh-pages
+        shell: bash
+        run: |
+          cp -f root_index.html gh-pages/index.html
 
       - name: Commit and push to gh-pages
         shell: bash
