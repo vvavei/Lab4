@@ -1,60 +1,24 @@
 <!doctype html>
 <html lang="ru">
-<head>
-  <meta charset="utf-8">
-  <title>Demo Site – Навигация</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 600px;
-      margin: 50px auto;
-      padding: 20px;
-      line-height: 1.5;
-      background-color: #f8f9fa;
-    }
-    
-    h1 {
-      color: #2c3e50;
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    
-    p {
-      text-align: center;
-      color: #555;
-      margin-bottom: 30px;
-      font-size: 18px;
-    }
-    
-    nav {
-      text-align: center;
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      margin-bottom: 30px;
-    }
-    
-    a {
-      color: #3498db;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 8px 16px;
-      margin: 0 10px;
-    }
-    
-    a:hover {
-      color: #2980b9;
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body>
-  <h1>Demo Site</h1>
-  <p>Добро пожаловать! Выберите язык:</p>
-  <nav>
-    <a href="ru/index.html">Русская версия</a> |
-    <a href="en/index.html">English version</a>
-  </nav>
-</body>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Версии сайта</title>
+<h1>Доступные версии сайта</h1>
+<ul id="list"></ul>
+<script>
+fetch('versions.json').then(r=>r.json()).then(vers=>{
+  const ul=document.getElementById('list');
+  if(!vers.length){ ul.innerHTML='<li>Пока нет опубликованных версий</li>'; return; }
+  vers.forEach(v=>{
+    const li=document.createElement('li');
+    const a=document.createElement('a');
+    a.href = 'v'+v+'/index.html';
+    a.textContent = 'v'+v;
+    li.appendChild(a);
+    ul.appendChild(li);
+  });
+}).catch(()=>{
+  document.getElementById('list').innerHTML='<li>Не удалось загрузить список версий</li>';
+});
+</script>
 </html>
